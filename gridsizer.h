@@ -12,9 +12,14 @@ public:
   wxTextCtrl *display;
   
   void onCls (wxCommandEvent&);
+  void onBt0 (wxCommandEvent&);
   void onBt1 (wxCommandEvent&);
   void onBt2 (wxCommandEvent&);
   void onBtSum (wxCommandEvent&);
+  void onBtMul (wxCommandEvent&);
+  void onBtDiv (wxCommandEvent&);
+  void onBtRes (wxCommandEvent&);
+  void onBtSame(wxCommandEvent&);
   void onBt3(wxCommandEvent&);
   void onBt4(wxCommandEvent&);
   void onBt5(wxCommandEvent&);
@@ -29,6 +34,8 @@ public:
 private:
   int valor1;
   int valor2;
+  int operando1;
+  int operando2;
   string operacion;
   int nClicks;
   	
