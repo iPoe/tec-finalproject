@@ -1,5 +1,7 @@
 #include "gridsizer.h"
 #include <iostream>
+#include <string>
+
 #include <sstream>
 using namespace std;
 
@@ -11,6 +13,8 @@ string convertir(int x){
 	return S;
  
 }
+
+
 
 GridSizer::GridSizer(const wxString& title)
        : wxFrame(NULL, -1, title, wxPoint(-1, -1), wxSize(270, 220))
@@ -56,6 +60,7 @@ void GridSizer::onCls (wxCommandEvent& WXUNUSED (event)) {
 	display->Clear();
 	valor1=valor2=0;
 	nClicks=0;
+	operacion=' ';
 }
 
 void GridSizer::onBt0 (wxCommandEvent& WXUNUSED (event)) {
@@ -150,48 +155,86 @@ void GridSizer::onBt9(wxCommandEvent& WXUNUSED (event)){
 }
 
 void GridSizer::onBtDiv (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 / valor2;
-	nClicks=0;
-	valor2=total;
-	string S;
-	S=convertir(total);
-	wxString k(S);
-	display->SetValue(k);
+	string texto = (string)display->GetValue();
+	operando1=atoi(texto.c_str());
+	operacion='/';	
+	display->Clear();	
+
+
+
+
+	
 }
 void GridSizer::onBtRes (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor2 - valor1;
+	string texto = (string)display->GetValue();
+	operando1=atoi(texto.c_str());
+	operacion='-';	
+	display->Clear();	
+
+
+	/*int total = valor2 - valor1;
 	nClicks=0;
 	valor2=total;
 	string S;
 	S=convertir(total);
 	wxString k(S);
-	display->SetValue(k);
+	display->SetValue(k);*/
 }
 
 void GridSizer::onBtSame (wxCommandEvent& WXUNUSED (event)) {
 	string texto = (string)display->GetValue();
 	operando2=atoi(texto.c_str());
-
+	int total;
+	
 	switch(operacion){
-	case "+":
-	bcjhbewckjhw;
-
-	break;
-	
-}
-	
-	int total = operando1+operando2;	
+	case '+':{
+	total = operando1+operando2;
 	display->Clear();
 	string S;
 	S=convertir(total);
 	wxString k(S);
 	display->SetValue(k);
+	}  
+	  break;
+	case '-':{
+	total = operando1-operando2;
+	display->Clear();
+	string S;
+	S=convertir(total);
+	wxString k(S);
+	display->SetValue(k);
+	}
+	 break; 
+
+	case '*':{
+	total = operando1*operando2;
+	display->Clear();
+	string S;
+	S=convertir(total);
+	wxString k(S);
+	display->SetValue(k);
+	}  
+	 break;
+	case '/':{
+	total = operando1/operando2;
+	display->Clear();
+	string S;
+	S=convertir(total);
+	wxString k(S);
+	display->SetValue(k);
+	}
+	  break;
+	
+	
+}
+	
+	
 }
 
 void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
 	string texto = (string)display->GetValue();
 	operando1=atoi(texto.c_str());
-	operacion="+"	
+	operacion='+';	
 	display->Clear();
 
 
@@ -206,14 +249,19 @@ void GridSizer::onBtSum (wxCommandEvent& WXUNUSED (event)) {
 }
 
 void GridSizer::onBtMul (wxCommandEvent& WXUNUSED (event)) {
-	int total = valor1 * valor2;
+	string texto = (string)display->GetValue();
+	operando1=atoi(texto.c_str());
+	operacion='*';	
+	display->Clear();	
+
+	/*int total = valor1 * valor2;
 	
 	nClicks=0;
 	valor2=total;
 	string S;
 	S=convertir(total);
 	wxString k(S);
-	display->SetValue(k);
+	display->SetValue(k);*/
 }
 
 

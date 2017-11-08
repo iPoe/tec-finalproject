@@ -1,4 +1,5 @@
 #include <wx/wx.h>
+
 #include <iostream>
 using namespace std;
 
@@ -36,7 +37,7 @@ private:
   int valor2;
   int operando1;
   int operando2;
-  string operacion;
+  char operacion;
   int nClicks;
   	
   DECLARE_EVENT_TABLE()
